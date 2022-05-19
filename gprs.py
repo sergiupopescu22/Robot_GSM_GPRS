@@ -36,16 +36,16 @@ def Citire_comanda():
     #time.sleep(0.7)
     
     
-    #time.sleep(0.01)
+    #time.sleep(0.7)
     
-    while counter < 3 and mesaj_citit != 1:
+    while counter < 60 and mesaj_citit != 1:
     
-        #time.sleep(0.05)
-        line = phone.read(200).decode('ascii').strip()
-        print("abcd")
+        #time.sleep(0.2)
+        line = phone.read(400).decode('ascii').strip()
+        #print("abcd")
         if line:
-            print("abbb")
-            print(line)
+            #print("abbb")
+            #print(line)
             index_start = line.find("Comanda:")
             index_end = line.find(';')
             
@@ -71,11 +71,12 @@ if __name__=="__main__":
         if (option == 0):
             break
         elif (option == 1):
-            raspuns = Citire_comanda()
-            if raspuns:
-                print(raspuns)
-            else:
-                print("Nu s-a primit niciun mesaj nou")
+            while True:
+                raspuns = Citire_comanda()
+                if raspuns:
+                    print(raspuns)
+                else:
+                    print("Nu s-a primit niciun mesaj nou")
         else:
             print("Optiune nevalida\n");
             
